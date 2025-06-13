@@ -14,8 +14,6 @@ export PATH="$PATH:/Users/david/.local/bin"
 
 # Node
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
-# Yarn
-export PATH="$PATH:`yarn global bin`"
 
 # LLVM
 # export PATH="$PATH:/opt/homebrew/opt/llvm/bin"
@@ -34,6 +32,27 @@ export ANTLR4_PATH="/usr/local/lib"
 
 alias uni="cd /Users/david/Desktop/Universidade"
 
+# Compose bake
+export COMPOSE_BAKE=true
+
+# English git
+alias git='LANG=en_US git'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+# <<< conda initialize <<<
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -186,5 +205,3 @@ zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 LS_COLORS=$LS_COLORS:'ow=01;34:' ; export LS_COLORS
- 
-
