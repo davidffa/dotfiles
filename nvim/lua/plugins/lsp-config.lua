@@ -17,6 +17,7 @@ return {
                     "eslint",
                     "html",
                     "pylsp",
+                    -- "pyright",
                     "jsonls",
                     "lua_ls",
                     "prismals",
@@ -33,7 +34,6 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            local lspconfig = require("lspconfig")
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
             local on_attach = function(client, bufnr)
@@ -49,11 +49,11 @@ return {
                 end
             end
 
-            lspconfig.clangd.setup({ capabilities = capabilities })
-            lspconfig.cssls.setup({ capabilities = capabilities })
-            lspconfig.dockerls.setup({ capabilities = capabilities })
-            lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
-            lspconfig.eslint.setup({
+            vim.lsp.config("clangd", { capabilities = capabilities })
+            vim.lsp.config("cssls", { capabilities = capabilities })
+            vim.lsp.config("dockerls", { capabilities = capabilities })
+            vim.lsp.config("docker_compose_language_service", { capabilities = capabilities })
+            vim.lsp.config("eslint", {
                 capabilities = capabilities,
                 on_attach = function(client, bufnr)
                     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -62,22 +62,21 @@ return {
                     })
                 end,
             })
-            lspconfig.html.setup({ capabilities = capabilities })
-            lspconfig.jsonls.setup({ capabilities = capabilities })
-            lspconfig.lua_ls.setup({ capabilities = capabilities })
-            lspconfig.prismals.setup({ capabilities = capabilities })
-            -- lspconfig.jedi_language_server.setup({ capabilities = capabilities })
-            lspconfig.pyright.setup({ capabilities = capabilities })
-            lspconfig.rust_analyzer.setup({
+            vim.lsp.config("html", { capabilities = capabilities })
+            vim.lsp.config("jsonls", { capabilities = capabilities })
+            vim.lsp.config("prismals", { capabilities = capabilities })
+            -- vim.lsp.config("pyright", { capabilities = capabilities })
+            vim.lsp.config("pylsp", { capabilities = capabilities })
+            vim.lsp.config("rust_analyzer", {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
-            lspconfig.ts_ls.setup({
+            vim.lsp.config("ts_ls", {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
-            lspconfig.tailwindcss.setup({ capabilities = capabilities })
-            lspconfig.taplo.setup({ capabilities = capabilities })
+            vim.lsp.config("tailwindcss", { capabilities = capabilities })
+            vim.lsp.config("taplo", { capabilities = capabilities })
 
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
