@@ -16,7 +16,7 @@ return {
                 -- null_ls.builtins.formatting.prettier,
             },
             on_attach = function(client, bufnr)
-                if vim.bo.filetype ~= "java" and client.supports_method("textDocument/formatting") then
+                if vim.bo.filetype ~= "java" and client:supports_method("textDocument/formatting") then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                     vim.api.nvim_create_autocmd("BufWritePre", {
                         group = augroup,
