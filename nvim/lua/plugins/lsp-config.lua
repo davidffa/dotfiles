@@ -50,9 +50,17 @@ return {
             end
 
             vim.lsp.config("clangd", { capabilities = capabilities })
+            vim.lsp.enable("clangd")
+
             vim.lsp.config("cssls", { capabilities = capabilities })
+            vim.lsp.enable("cssls")
+
             vim.lsp.config("dockerls", { capabilities = capabilities })
+            vim.lsp.enable("dockerls")
+
             vim.lsp.config("docker_compose_language_service", { capabilities = capabilities })
+            vim.lsp.enable("docker_compose_language_service")
+
             vim.lsp.config("eslint", {
                 capabilities = capabilities,
                 on_attach = function(client, bufnr)
@@ -62,21 +70,38 @@ return {
                     })
                 end,
             })
+            vim.lsp.enable("eslint")
+
             vim.lsp.config("html", { capabilities = capabilities })
+            vim.lsp.enable("html")
+
             vim.lsp.config("jsonls", { capabilities = capabilities })
+            vim.lsp.enable("jsonls")
+
             vim.lsp.config("prismals", { capabilities = capabilities })
+            vim.lsp.enable("prismals")
+
             -- vim.lsp.config("pyright", { capabilities = capabilities })
             vim.lsp.config("pylsp", { capabilities = capabilities })
+            vim.lsp.enable("pylsp")
+
             vim.lsp.config("rust_analyzer", {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
+            vim.lsp.enable("rust_analyzer")
+
             vim.lsp.config("ts_ls", {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
+            vim.lsp.enable("ts_ls")
+
             vim.lsp.config("tailwindcss", { capabilities = capabilities })
+            vim.lsp.enable("tailwindcss")
+
             vim.lsp.config("taplo", { capabilities = capabilities })
+            vim.lsp.enable("taplo")
 
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
