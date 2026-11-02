@@ -24,6 +24,7 @@ return {
                     "ts_ls",
                     "tailwindcss",
                     "taplo",
+                    "texlab",
                 },
                 automatic_installation = true,
             })
@@ -102,6 +103,9 @@ return {
 
             vim.lsp.config("taplo", { capabilities = capabilities })
             vim.lsp.enable("taplo")
+
+            vim.lsp.config("texlab", { capabilities = capabilities })
+            vim.lsp.enable("texlab")
 
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })

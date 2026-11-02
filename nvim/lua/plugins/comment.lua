@@ -1,6 +1,13 @@
 return {
-    'numToStr/Comment.nvim',
+    'echasnovski/mini.comment',
+    version = false,
     config = function()
-        require('Comment').setup()
+        require('mini.comment').setup({
+            options = {
+                custom_commentstring = function()
+                    return vim.bo.commentstring
+                end,
+            },
+        })
     end
 }
